@@ -30,7 +30,8 @@ r = whois.whois(url)
 X = [len(url),len(r.domain_name),0.002267]
 c4 = 0 if type(r.whois_server)=="<class 'NoneType'>" else 1
 c5 = 0 if type(r.emails)=="<class 'NoneType'>" else 1
-X.extend([c4,10.857694,2.743793])
+dir_length= 0 if type(r.emails)=="<class 'NoneType'>" else url.count('\\')
+X.extend([c4,dir_length,2.743793])
 X.extend([5.273185,X_train['tld_present_params'].mean(),c5])
 X.extend([X_train['time_response'].mean(),X_train['asn_ip'].mean(),X_train['domain_google_index'].mean()])
 X.extend([X_train['url_shortened'].mean(),X_train['qty_char_domain'].mean()])
