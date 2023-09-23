@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NoFishes</title>
+    <link rel="icon" href="images/fist.ico">
+    <!-- bootstrap links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+        crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Text font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Ubuntu&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../static/index.css">
+
+</head>
+
+<body>
+    <section id="title">
+
+        <div class="container-fluid">
+            <!-- Nav Bar -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="brand-name">
+                    <div class="brand-img"><img class="brand" src="../static/images/fish-bones-crop.PNG" />
+                    </div>
+                    <img class="brand-na" src="../static/images/no-fishes-text.PNG" />
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#search-bar-zone">Find Phish</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#add-bar-zone">Add Phish</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('another_page') }}">About us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="heading-main">
+                <h1>We check for the security of the websites you visit.</h1>
+            </div>
+        </div>
+    </section>
+
+    <section id="search-bar-zone">
+        <div class="search-type-bar">
+            <h2 class="search-text-heading">Type your url here</h2>
+            <div class="row">
+                <form action="{{url_for('predict')}}#search-bar-zone" method="post" class="input-group">
+                    <input value="{{ip}}" type="text" class="form-control" id="urlInput" name="url" placeholder="https://www.example.com" required>
+                    <button class="btn btn-outline-secondary dd spinButton btn-bg-grad" type="submit" onclick="">Check</button>
+                    <button class="btn btn-outline-secondary dd btn-bg-grad ref" class="" type="button"
+                        onclick="window.location.href = '/#search-bar-zone';">
+                        Refresh
+                    </button>
+                    
+
+                </form>
+                
+                <h3 style="color: red; padding-top: 200px;">{{prediction_text}}</h3>
+                
+            
+            </div>
+        </div>
+        <!-- <div id="reportweb">
+            <h5 class="textreport">Do you want to report this website phishing? <span><a class="reportlink">Report</a></span></h5>
+        </div> -->
+    </section>
+    <section id="add-bar-zone">
+        <div class="add-type-bar">
+            <h2 class="add-text-heading">Type url to report the phishing website</h2>
+            <div class="row">
+                <form action="{{url_for('add')}}#add-bar-zone" method="post" class="input-group">
+                    <input value="{{ip2}}" type="url" class="form-control" placeholder="Add-url" name="add" placeholder="https://www.example.com" required>
+                    <button class="btn btn-outline-secondary btn-bg-grad dd2" type="submit" onclick="">Report</button>
+                    <button class="btn btn-outline-secondary btn-bg-grad dd2 ref" type="button"
+                        onclick="window.location.href = '/#add-bar-zone';">
+                        Refresh
+                    </button>
+
+
+                </form>
+                
+                <h3 style="padding-top: 200px;">{{addition_text}}</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="formouter">
+            <h2 class="contacthead">Contact Form</h2>
+            <div class="row">
+                <form class='formdesign' action="https://formsubmit.co/el/xezuje" method="port" enctype="text/plain">
+                    <label for="name">Name:</label><br />
+                    <input class="form-control mx-auto" type="text" id="name" name="name" required><br>
+
+                    <label for="email">Email:</label><br />
+                    <input class="form-control mx-auto" type="email" id="email" name="email" required><br>
+
+                    <label for="message">Message:</label><br>
+                    <textarea class="form-control mx-auto widl w-50" id="message" name="message"
+                        required></textarea><br>
+
+                    <button class="btn btn-outline-secondary btn-bg-grad dd" type="submit" onclick="">Submit</button>
+                </form>
+            </div>
+
+
+            <p class="stickbottom">© Copyright 2023 NoFishes</p>
+
+
+    </section>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // JavaScript code to show/hide the 'reportweb' div based on Flask value
+            const testno =  testno ; // Replace with the actual Flask variable
+            if (testno === 1) {
+                document.getElementById('reportweb').style.display = 'block';
+            }
+        });
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
